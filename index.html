@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>bounce, bounce</title>
+	</head>
+
+	<body>
+		<div id="boxes" class='ticker-container simple-blue-bottom-85'></div>
+		<p id="time"></p>
+
+		<script type="text/javascript" src="ticker.js"></script>
+		<script type="text/javascript">
+
+
+
+		var boxes = [
+						{text: "U.S. steps up pressure as bullying grows", class: "basic-yellow-text", icon: ""},
+						{text: "Two men whose names appear on the Malaysia Airlines Flight 370 manifest had reported their passports stolen.", class: "basic-white-text", icon: ""},
+						{text: "China to fight pollution with drones", style :"font-size: 32px;color: pink;font-family: sans-serif; margin: 4px 0 6px 0;"}
+					];
+
+
+
+
+		//init the ticker. 
+		ticker.init({container: "boxes", direction: 1});
+		ticker.addHeadline(boxes);
+
+		//make the ticker move. 16ms is close to 60fps. might be overkill
+		setInterval(function(){
+			requestAnimationFrame(ticker.frame)
+		}, 16);
+
+			
+
+
+
+		</script>
+	</body>
+
+</html>
