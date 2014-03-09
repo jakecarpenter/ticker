@@ -1,14 +1,13 @@
 		var ticker = (function() {
 		    //PRIVATE 
 		    var headlines = [],
-		    	distancePerFrame = 1,
-		    	headlineSpacing = 5,
+		    	distancePerFrame = 2,
 		        tickerContainer = "",
 		        type = Object.prototype.toString,
 		        direction = 1, //0 for left to right, 1, for rigth to left.
 
 		        //core functionality:
-		        nextHeadline = function(){
+		        nextHeadline = function(direction){
 		        	//we want the first headline in the array.
 					var headline = headlines[0];
 
@@ -21,7 +20,7 @@
 					var carrier = document.createElement('div');
 						carrier.classList.add("carrier");
 
-					//create the passenger icon and text.
+					//create the headline icon and text.
 					if(headline.icon != undefined && headline.icon != ""){
 						var icon = document.createElement("img");
 						icon.src = headline.icon;
@@ -38,7 +37,7 @@
 
 						//if we specify a specific style, use it
 						if(headline.style != undefined && headline.style != ""){
-							//we need a style name
+							//we need a style name 
 							var styleName = nameGen(10);
 							document.styleSheets[0].addRule("." + styleName, headline.style);
 							sp.classList.add(styleName);
@@ -48,42 +47,75 @@
 					}
 
 					//add it once in the middle of nowhere so we can measure it.
-					carrier.style.left =  "0px";
-					carrier.style.top = "-500px";
+					carrier.style.left =  "-9999px";
+					carrier.style.top = "-1500px";
 					tickerContainer.appendChild(carrier);
 
 					//now move it to the right spot
-					carrier.style.left =  "-" + carrier.offsetWidth + "px";
-					carrier.style.top = "";
+					if(direction == 0){
+						carrier.style.left =  "-" + carrier.offsetWidth + "px";
+						carrier.style.top = "";
+					}
+					else if(direction == 1){
+						carrier.style.left =  tickerContainer.offsetLeft + tickerContainer.offsetWidth + "px";
+						carrier.style.top = "";
+					}
 		        },
 
-		        draw = function(){
-		        	//house keeping
-		        	//var increment = (direction == 0)? distancePerFrame : -distancePerFrame;
+		        destroyHeadline = function(headline){
+		        	//this should do more housekeeping, ie remove orphaned classes.
+				    tickerContainer.removeChild(headline);
+		        },
 
+		        animate = function(){
+		        	//house keeping
 		        	//if there aren't any headlines, add the first.
 		        	if(tickerContainer.children.length == 0){
-		        		nextHeadline();
+		        		nextHeadline(direction);
 		        	}
 
-		        	//for all existing boxes, move them left the move distance.
-					for (var i = tickerContainer.children.length - 1; i >= 0; i--) {
-						var headline = tickerContainer.children[i];
+		        	//for all existing boxes, move them left the move distance & direction.
+		        	if(direction == 0){
+		        		for (var i = tickerContainer.children.length - 1; i >= 0; i--) {
+							var headline = tickerContainer.children[i];
 
-						headline.style.left = (parseInt(headline.style.left,10) + distancePerFrame) + 'px';
-						
-						//if the box is now off screen, remove it.
-						if((tickerContainer.offsetLeft + tickerContainer.offsetWidth) < parseInt(headline.style.left,10)){
-							tickerContainer.removeChild(headline);
-						}
+							headline.style.left = (parseInt(headline.style.left,10) + distancePerFrame) + 'px';
+							
+							//if the box is now off screen, remove it.
+							if((tickerContainer.offsetLeft + tickerContainer.offsetWidth) < parseInt(headline.style.left,10)){
+								destroyHeadline(headline);
+							}
 
-						//if there is room for the next box, add it.
-						if(parseInt(headline.style.left,10) == headlineSpacing){
-							nextHeadline();
-						}
-						
-					};
+							//if there is room for the next box, add it.
+							if(parseInt(headline.style.left,10) == headlineSpacing){
+								nextHeadline(direction);
+							}
+						};
+		        	}
+					else if(direction == 1){
+						//store the children
+						var children = tickerContainer.children;
+						for (var i = 0; i  < children.length; i++) {
+							var headline = children[i];
 
+							// move the box
+							headline.style.left = (parseInt(headline.style.left,10) - distancePerFrame) + 'px';
+							
+							//if the box is off screen, remove it.
+							if(tickerContainer.offsetLeft > parseInt(headline.style.left,10) + headline.offsetWidth + tickerContainer.offsetLeft + 25){
+								destroyHeadline(headline);
+							}
+
+							//if we need a new headline, add it
+							if(children[i+1] == undefined && 
+								(headline.offsetWidth + headline.offsetLeft) <
+								tickerContainer.offsetLeft + tickerContainer.offsetWidth){
+								nextHeadline(direction);
+							}
+							
+							
+						};
+					}
 		        },
 
 			    //util functions
@@ -135,8 +167,7 @@
 		        	}
 
 		        	direction = (config.direction != undefined)? config.direction : direction;
-		        	console.log(direction);
-		        	
+
 		        	
 		        },
 		        //add a single headline object, or an array of objects to the headlines array
@@ -172,12 +203,8 @@
 		        	return headlines;
 		        },
 		        frame: function(){
-
-		        	//for (var i = frames ; i > 0; i--) {
-		        		draw();
-		        		//debug();
-		        	//};
-		        	
+		        		animate();
+		        		//debug();        	
 		        }
 
 		    }

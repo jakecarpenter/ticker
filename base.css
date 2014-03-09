@@ -1,19 +1,18 @@
 	/* */
-	.blue {
-		background-color: blue;
+	
+	body, html {
+		padding: 0;
+		margin: 0;
 	}
 
-	.red {
-		background-color: red;
-	}
-
-	.green {
-		background-color: green;
-	}
 	.ticker-container div.carrier{
 		position: absolute;
 		overflow: hidden;
 		white-space: nowrap;
+		margin: 0 0 0 10px;
+		font-size: 18px;
+		color: #ffffff;
+		font-family: sans-serif;
 	}
 
 	/* b3q ticker template */
@@ -24,34 +23,26 @@
 	  background: linear-gradient(to bottom,  #1e5799 0%,#43658e 2%,#207cca 8%,#2989d8 88%,#7db9e8 97%,#7db9e8 97%,#1e5799 100%);   
 
 	  /* to remove */
+	  margin: 0px 0px 0px 0px;
 	  position: absolute;
-	  top: 85px;
-	  left:10%;
-	  width:80%;
-	  min-height: 40px;
+	  top: 95%;
+	  width:100%;
+	  min-height: 30px;
 	  overflow: hidden;
 	}
 
 	/* text styles */
 	.basic-white-text {
-	  font-size: 32px;
+	  font-size: 18px;
 	  color: #ffffff;
 	  font-family: sans-serif;
 	  margin: 4px 0 6px 0;
 	}
 
 	.basic-yellow-text {
-	  font-size: 32px;
+	  font-size: 18px;
 	  color: yellow;
 	  font-family: sans-serif;
 	  margin: 4px 0 6px 0;
 	}
 
-	.fancy-white-text {
-        font-size: 45px;
-        margin-top: 0;
-        font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;
-        text-shadow: 2px 3px 3px #292929;
-        letter-spacing: -2px;
-        -webkit-text-stroke: 1px white;
-	}
