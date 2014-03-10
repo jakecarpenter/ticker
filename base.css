@@ -13,7 +13,19 @@
 		font-size: 18px;
 		color: #ffffff;
 		font-family: sans-serif;
+		float: left;
+		height: 100%;
+		vertical-align: middle;
 	}
+
+	.ticker-container div.carrier img{
+		vertical-align: middle;
+		height: 100% ;
+		margin: 0;
+		padding: 0;
+	}
+
+
 
 	/* b3q ticker template */
 	div.simple-blue-bottom-85 {
@@ -31,18 +43,37 @@
 	  overflow: hidden;
 	}
 
+	div.dark-blue-90 {
+	background: #31397f;
+	background: -moz-linear-gradient(top,  #31397f 0%, #010054 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#31397f), color-stop(100%,#010054));
+	background: -webkit-linear-gradient(top,  #31397f 0%,#010054 100%);
+	background: linear-gradient(to bottom,  #31397f 0%,#010054 100%);
+  
+
+	  /* to remove */
+	  margin: 0px 0px 0px 0px;
+	  position: absolute;
+	  top: 90%;
+	  width:100%;
+	  min-height: 30px;
+	  overflow: hidden;
+	}
+
 	/* text styles */
 	.basic-white-text {
 	  font-size: 18px;
 	  color: #ffffff;
 	  font-family: sans-serif;
-	  margin: 4px 0 6px 0;
+	  margin: 6px 0 6px 0;
+	  vertical-align: middle;
 	}
 
 	.basic-yellow-text {
 	  font-size: 18px;
 	  color: yellow;
 	  font-family: sans-serif;
-	  margin: 4px 0 6px 0;
+	  margin: 6px 0 6px 0;
+	  vertical-align: middle;
 	}
 
