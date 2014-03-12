@@ -5,21 +5,28 @@
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<!-- Latest compiled and minified JavaScript 
+	/* dont need jquery atm */ <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container" ng-app="tickerApp">
 		<h1>Ticker Controller</h1>
 		<p class="lead">Customize the ticker content here.</p>
 
-		<div class="panel panel-default">
+		<div class="panel panel-default" ng-controller="HeadlineCtrl">
 			<!-- Default panel contents -->
+			<a ng-click="loadHeadlines()">fetch</a>
 			<div class="panel-heading">Current Headlines</div>
 			<!-- Table -->
 			<table class="table">
 			<tr><th>text</th><th>style</th><th>icon</th></tr>
-			<tr><td>adsf</td><td>fdadsf</td><td></td></tr>
+			<tr ng-repeat="headline in headlines">
+				<td>{{ headline.text }}</td>
+				<td>{{ headline.style }}</td>
+				<td>{{ headline.icon }}</td>
+			</tr>
 			</table>
 		</div>
 
