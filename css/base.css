@@ -1,0 +1,79 @@
+	/* */
+	
+	body, html {
+		padding: 0;
+		margin: 0;
+	}
+
+	.ticker-container div.carrier{
+		position: absolute;
+		overflow: hidden;
+		white-space: nowrap;
+		margin: 0 0 0 10px;
+		font-size: 18px;
+		color: #ffffff;
+		font-family: sans-serif;
+		float: left;
+		height: 100%;
+		vertical-align: middle;
+	}
+
+	.ticker-container div.carrier img{
+		vertical-align: middle;
+		height: 100% ;
+		margin: 0;
+		padding: 0;
+	}
+
+
+
+	/* b3q ticker template */
+	div.simple-blue-bottom-85 {
+	  background: -moz-linear-gradient(top,  #1e5799 0%, #43658e 2%, #207cca 8%, #2989d8 88%, #7db9e8 97%, #7db9e8 97%, #1e5799 100%); 
+	  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(2%,#43658e), color-stop(8%,#207cca), color-stop(88%,#2989d8), color-stop(97%,#7db9e8), color-stop(97%,#7db9e8), color-stop(100%,#1e5799)); 
+	  background: -webkit-linear-gradient(top,  #1e5799 0%,#43658e 2%,#207cca 8%,#2989d8 88%,#7db9e8 97%,#7db9e8 97%,#1e5799 100%); 
+	  background: linear-gradient(to bottom,  #1e5799 0%,#43658e 2%,#207cca 8%,#2989d8 88%,#7db9e8 97%,#7db9e8 97%,#1e5799 100%);   
+
+	  /* to remove */
+	  margin: 0px 0px 0px 0px;
+	  position: absolute;
+	  top: 95%;
+	  width:100%;
+	  min-height: 30px;
+	  overflow: hidden;
+	}
+
+	div.dark-blue-90 {
+	background: #31397f;
+	background: -moz-linear-gradient(top,  #31397f 0%, #010054 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#31397f), color-stop(100%,#010054));
+	background: -webkit-linear-gradient(top,  #31397f 0%,#010054 100%);
+	background: linear-gradient(to bottom,  #31397f 0%,#010054 100%);
+  
+
+	  /* to remove */
+	  margin: 0px 0px 0px 0px;
+	  position: absolute;
+	  top: 90%;
+	  width:100%;
+	  min-height: 30px;
+	  overflow: hidden;
+	}
+
+	/* text styles */
+	.basic-white-text {
+	  font-size: 18px;
+	  color: #ffffff;
+	  font-family: sans-serif;
+	  margin: 6px 0 6px 0;
+	  vertical-align: middle;
+	}
+
+	.basic-yellow-text {
+	  font-size: 18px;
+	  color: yellow;
+	  font-family: sans-serif;
+	  margin: 6px 0 6px 0;
+	  vertical-align: middle;
+	}
+

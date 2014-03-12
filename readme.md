@@ -14,3 +14,10 @@ Some of the important features are not stubbed out.
 No error handling/catching
 Pretty dependent on styling.
 Some issue manipulating the dom.
+
+### Todo: ###
+Realtime control. 
+stats: run count, time on screen. (duration and timestamps)
+pull from rss
+pull by twitter keyword
+censorkill (don't air bad stuff)* Potentially high overhead
