@@ -17,13 +17,14 @@
 
 		<div class="panel panel-default" ng-controller="HeadlineCtrl">
 			<!-- Default panel contents -->
-			<a ng-click="loadHeadlines()">fetch</a>
+			<a ng-click="loadHeadlines()">fetch</a> <a ng-click="loadBasketballNews()">fetch</a>
 			<div class="panel-heading">Current Headlines</div>
 			<!-- Table -->
 			<table class="table">
-			<tr><th>text</th><th>style</th><th>icon</th></tr>
+			<tr><th>text</th><th>class</th><th>style</th><th>icon</th></tr>
 			<tr ng-repeat="headline in headlines">
 				<td>{{ headline.text }}</td>
+				<td>{{ headline.class }}</td>
 				<td>{{ headline.style }}</td>
 				<td>{{ headline.icon }}</td>
 			</tr>

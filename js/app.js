@@ -17,4 +17,16 @@ function HeadlineCtrl($scope, $http) {
 
     };
 
+    $scope.loadBasketballNews = function () {
+		    var httpRequest = $http({
+            method: 'GET',
+            url: 'http://api.espn.com/v1/sports/basketball/nba/news/headlines?apikey=h8jcejfstdxvqtycaq64pzgm',
+            
+
+        }).success(function(data, status) {
+            $scope.headlines = data.headlines;
+            console.log(data)
+        });
+    }
+
 }
