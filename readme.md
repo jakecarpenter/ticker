@@ -16,7 +16,8 @@ Pretty dependent on styling.
 Some issue manipulating the dom.
 
 ### Todo: ###
-Realtime control. 
+BIG CHANGE: use a 'ghost' div hooked up to socket/angular as the source for the ticker, then draw based on that. that way, angular can do its magic and we still do our animation.
+Realtime control, using angular/socketjs
 stats: run count, time on screen. (duration and timestamps)
 pull from rss
 pull by twitter keyword

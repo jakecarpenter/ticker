@@ -11,13 +11,13 @@
 	<script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
-	<div class="container" ng-app="tickerApp">
+	<div class="container" ng-app="controllerApp">
 		<h1>Ticker Controller</h1>
 		<p class="lead">Customize the ticker content here.</p>
 
 		<div class="panel panel-default" ng-controller="HeadlineCtrl">
 			<!-- Default panel contents -->
-			<a ng-click="loadHeadlines()">fetch</a> <a ng-click="loadBasketballNews()">fetch</a>
+			<a ng-click="loadHeadlines()">local file</a> | <a ng-click="loadBasketballNews()">Basketball API</a>
 			<div class="panel-heading">Current Headlines</div>
 			<!-- Table -->
 			<table class="table">

@@ -1,6 +1,13 @@
 /* angular code for the controller. */
 
-var app = angular.module('tickerApp', []);
+var app = angular.module('controllerApp', []);
+
+//need to enable CORS for api calls
+app.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }
+]);
 
 function HeadlineCtrl($scope, $http) {
 
@@ -24,8 +31,16 @@ function HeadlineCtrl($scope, $http) {
             
 
         }).success(function(data, status) {
-            $scope.headlines = data.headlines;
-            console.log(data)
+        	var headlines = [];
+        	for (var i = data.headlines.length - 1; i >= 0; i--) {
+        		var headline = {};
+        		headline.text = data.headlines[i].headline;
+        		headline.icon = 'basketball.png';
+        		headline.class = 'basketball-text';
+        		headlines.push(headline);
+        	};
+
+            $scope.headlines = headlines; 	
         });
     }
 
